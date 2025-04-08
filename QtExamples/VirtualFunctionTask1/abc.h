@@ -8,7 +8,10 @@ class ABC : public QWidget
 public:
     explicit ABC(QWidget *parent = nullptr);
     ~ABC();
-    void paintEvent();
+
+protected:
+    // Correct signature with override
+    void paintEvent(QPaintEvent *event) override;
 
 signals:
 };
