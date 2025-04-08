@@ -1,18 +1,19 @@
 #include "dbc.h"
 #include <QDebug>
+#include <QPaintEvent>
 
 DBC::DBC() {
-    qDebug()<<"dbc constructor  called";
-
+    qDebug() << "dbc constructor called";
 }
 
 DBC::~DBC()
 {
-    qDebug()<<"dbc destructor  called";
-
+    qDebug() << "dbc destructor called";
 }
 
-void DBC::paintEvent()
+void DBC::paintEvent(QPaintEvent *event)
 {
-    qDebug()<<"dbc paint event called";
+    qDebug() << "dbc paint event called";
+    // Call the base class implementation if needed
+    ABC::paintEvent(event);
 }

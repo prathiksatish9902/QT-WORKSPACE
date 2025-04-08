@@ -16,7 +16,9 @@ class Widget : public QWidget
 public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
-    virtual void paintEvent();
+
+protected:
+    void paintEvent(QPaintEvent *event) override;
 
 private:
     Ui::Widget *ui;

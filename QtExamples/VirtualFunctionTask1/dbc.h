@@ -8,7 +8,10 @@ class DBC : public ABC
 public:
     DBC();
     ~DBC();
-    void paintEvent();
+
+protected:
+    // Correct signature with override
+    void paintEvent(QPaintEvent *event) override;
 };
 
 #endif // DBC_H
