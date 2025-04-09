@@ -13,11 +13,11 @@ MyCheckBox::~MyCheckBox()
 bool MyCheckBox::event(QEvent *e)
 {
     qDebug()<<"my checkbox event function called";
-    return true;
+    return QCheckBox::event(e);
 }
 
 void MyCheckBox::paintEvent(QPaintEvent *event)
 {
     qDebug()<<"my checkbox paint event function called";
-
+    QCheckBox::paintEvent(event);
 }

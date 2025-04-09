@@ -16,6 +16,5 @@ ABC::~ABC()
 void ABC::paintEvent(QPaintEvent *event)
 {
     qDebug() << "abc paint event function called";
-    // Call the base class implementation if needed
     QWidget::paintEvent(event);
 }

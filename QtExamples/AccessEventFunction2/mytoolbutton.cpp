@@ -13,12 +13,13 @@ MyToolButton::~MyToolButton()
 bool MyToolButton::event(QEvent *e)
 {
     qDebug()<<"my tool button event function called";
-    return true;
+    return QToolButton::event(e);
 
 }
 
 void MyToolButton::paintEvent(QPaintEvent *event)
 {
     qDebug()<<"my tool button paintevent function called";
+    QToolButton::paintEvent(event);
 
 }

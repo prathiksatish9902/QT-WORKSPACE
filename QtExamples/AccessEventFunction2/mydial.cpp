@@ -13,11 +13,13 @@ MyDial::~MyDial()
 bool MyDial::event(QEvent *e)
 {
     qDebug()<<"my dial event function called";
-    return true;
+    return QDial::event(e);
+;
 }
 
 void MyDial::paintEvent(QPaintEvent *event)
 {
     qDebug()<<"my dial paint event function called";
+    QDial::paintEvent(event);
 
 }
