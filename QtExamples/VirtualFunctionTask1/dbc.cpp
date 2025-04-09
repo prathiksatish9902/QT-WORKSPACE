@@ -14,6 +14,5 @@ DBC::~DBC()
 void DBC::paintEvent(QPaintEvent *event)
 {
     qDebug() << "dbc paint event called";
-    // Call the base class implementation if needed
     ABC::paintEvent(event);
 }

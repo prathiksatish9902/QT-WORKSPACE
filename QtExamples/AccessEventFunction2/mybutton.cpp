@@ -14,11 +14,12 @@ MyButton::~MyButton()
 bool MyButton::event(QEvent *e)
 {
     qDebug()<<"my button event function called";
-    return true;
+    return QPushButton::event(e);
 }
 
 void MyButton::paintEvent(QPaintEvent *event)
 {
     qDebug()<<"my button paint event function called";
+    QPushButton::paintEvent(event);
 }
 

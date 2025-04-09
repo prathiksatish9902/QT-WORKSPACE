@@ -14,11 +14,12 @@ MySpinBox::~MySpinBox()
 bool MySpinBox::event(QEvent *e)
 {
     qDebug()<<"my spinbox event function called";
-    return true;
+    return QSpinBox::event(e);
 }
 
 void MySpinBox::paintEvent(QPaintEvent *event)
 {
     qDebug()<<"my slider paint event function called";
+    QSpinBox::paintEvent(event);
 
 }

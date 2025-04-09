@@ -13,11 +13,12 @@ MySlider::~MySlider()
 bool MySlider::event(QEvent *e)
 {
     qDebug()<<"my slider event function called";
-    return true;
+    return QSlider::event(e);
 }
 
 void MySlider::paintEvent(QPaintEvent *event)
 {
     qDebug()<<"my slider paint event function called";
+    QSlider::paintEvent(event);
 
 }

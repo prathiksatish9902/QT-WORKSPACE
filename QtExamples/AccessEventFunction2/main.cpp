@@ -8,56 +8,74 @@
 #include "mydial.h"
 #include "myspinbox.h"
 #include <QApplication>
+// #include <QSlider>
 
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    QEvent *e;
-    QPaintEvent *event;
+
     MyWidget w;
     w.show();
+    MyButton pushbutton;
+    QPushButton *button1 = &pushbutton;
 
-    MyButton button1;
-    button1.event(e);
-    button1.paintEvent(event);
+    button1->show();
+
+
     qDebug()<<"----------------------------------------------";
-    MyCheckBox checkbox;
-    checkbox.event(e);
-    checkbox.paintEvent(event);
+    MyCheckBox cb;
+    QCheckBox *checkbox = &cb;
+
+    checkbox->show();
     qDebug()<<"----------------------------------------------";
+    MyRadioButton rb;
+    QRadioButton *radiobutton = &rb ;
 
-    MyRadioButton radiobutton;
-    radiobutton.event(e);
-    radiobutton.paintEvent(event);
+    radiobutton->show();
     qDebug()<<"----------------------------------------------";
+    MyToolButton tb;
+    QToolButton *toolbutton = &tb ;
 
-    MyToolButton toolbutton;
-    toolbutton.event(e);
-    toolbutton.paintEvent(event);
-    qDebug()<<"----------------------------------------------";
-
-
-    MySlider slider;
-    slider.event(e);
-    slider.paintEvent(event);
+    toolbutton->show();
     qDebug()<<"----------------------------------------------";
 
-    MyScrollBar scrollbar;
-    scrollbar.event(e);
-    scrollbar.paintEvent(event);
+    MySlider sl;
+    QSlider *slider = &sl ;
+
+    slider->show();
+    qDebug()<<"----------------------------------------------";
+    MyScrollBar sb;
+    QScrollBar *scrollbar = &sb ;
+
+    scrollbar->show();
+    qDebug()<<"----------------------------------------------";
+
+    MyDial dl;
+    QDial *dial = &dl ;
+
+    dial->show();
+    qDebug()<<"----------------------------------------------";
+    MySpinBox spb;
+    QSpinBox *spinbox = &spb ;
+
+    spinbox->show();
     qDebug()<<"----------------------------------------------";
 
 
-    MyDial dial;
-    dial.event(e);
-    dial.paintEvent(event);
-    qDebug()<<"----------------------------------------------";
+    // delete w;
+    // delete button1;
+    // delete checkbox;
+    // delete dial;
+    // delete radiobutton;
+    // delete scrollbar;
+    // delete slider;
+    // delete spinbox;
+    // delete toolbutton;
 
-    MySpinBox spinbox;
-    spinbox.event(e);
-    spinbox.paintEvent(event);
-    qDebug()<<"----------------------------------------------";
+
+
+
 
 
 

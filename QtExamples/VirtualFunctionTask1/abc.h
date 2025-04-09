@@ -10,7 +10,6 @@ public:
     ~ABC();
 
 protected:
-    // Correct signature with override
     void paintEvent(QPaintEvent *event) override;
 
 signals:

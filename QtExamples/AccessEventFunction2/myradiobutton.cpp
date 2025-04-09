@@ -13,11 +13,12 @@ MyRadioButton::~MyRadioButton()
 bool MyRadioButton::event(QEvent *e)
 {
     qDebug()<<"my radio button event function called";
-    return true;
+    return QRadioButton::event(e);
 }
 
 void MyRadioButton::paintEvent(QPaintEvent *event)
 {
     qDebug()<<"my radio button paint event function called";
+    QRadioButton::paintEvent(event);
 
 }
