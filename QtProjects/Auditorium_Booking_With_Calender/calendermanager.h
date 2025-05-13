@@ -35,7 +35,7 @@ private:
 
     Year* GetOrCreateYear(int year);
     void setupUI();
-    // void updateCalendarTitle();
+    void updateCalendarTitle();
     QString IntToMonthName(int month);
 
     QPushButton *nextMonthButton;

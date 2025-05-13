@@ -14,7 +14,6 @@
 
 AuditoriumManagement::AuditoriumManagement(QWidget *parent) : QWidget(parent) {
     setupUI();
-    // Connect buttons to their respective slots
     connect(addAuditoriumButton, &QPushButton::clicked, this, &AuditoriumManagement::AddAuditorium);
     connect(displayAuditoriumButton, &QPushButton::clicked, this, &AuditoriumManagement::DisplayAuditorium);
     connect(bookAuditoriumButton, &QPushButton::clicked, this, &AuditoriumManagement::BookAuditorium);
@@ -22,7 +21,6 @@ AuditoriumManagement::AuditoriumManagement(QWidget *parent) : QWidget(parent) {
 }
 
 AuditoriumManagement::~AuditoriumManagement() {
-    // Correctly delete all auditorium pointers
     for (auto auditoriumList = m_auditoriumMap.begin(); auditoriumList != m_auditoriumMap.end(); ++auditoriumList) {
         delete auditoriumList.value();
     }
@@ -50,14 +48,12 @@ void AuditoriumManagement::setupUI() {
 }
 
 void AuditoriumManagement::AddAuditorium() {
-    // Clear existing auditoriums if any
     QMap<QString, Auditorium*>::iterator auditoriumList;
     for (auditoriumList = m_auditoriumMap.begin(); auditoriumList != m_auditoriumMap.end(); ++auditoriumList) {
         delete auditoriumList.value();
     }
     m_auditoriumMap.clear();
 
-    // Add predefined auditoriums
     m_auditoriumMap["AUD001"] = new Auditorium("AUD001", "Auditorium 1", 300, "Available");
     m_auditoriumMap["AUD002"] = new Auditorium("AUD002", "Auditorium 2", 300, "Available");
     m_auditoriumMap["AUD003"] = new Auditorium("AUD003", "Auditorium 3", 300, "Available");
@@ -69,7 +65,6 @@ void AuditoriumManagement::AddAuditorium() {
     m_auditoriumMap["AUD009"] = new Auditorium("AUD009", "Auditorium 9", 300, "Available");
     m_auditoriumMap["AUD010"] = new Auditorium("AUD010", "Auditorium 10", 300, "Available");
 
-    // Show confirmation message
     QMessageBox::information(this, "Success", "Predefined auditoriums added successfully!");
 }
 void AuditoriumManagement::DisplayAuditorium() {
@@ -106,21 +101,17 @@ void AuditoriumManagement::BookAuditorium() {
         return;
     }
 
-    // Create booking dialog
     QDialog dialog(this);
     dialog.setWindowTitle("Book an Auditorium");
     QFormLayout formLayout(&dialog);
 
-    // Get selected date first
     QDateEdit *dateEdit = new QDateEdit(QDate::currentDate(), &dialog);
     dateEdit->setCalendarPopup(true);
     dateEdit->setMinimumDate(QDate::currentDate());
     formLayout.addRow("Date:", dateEdit);
 
-    // Create auditorium selection dropdown
     QComboBox *auditoriumCombo = new QComboBox(&dialog);
 
-    // Function to update available auditoriums based on selected date
     auto updateAvailableAuditoriums = [this, auditoriumCombo, dateEdit]() {
         auditoriumCombo->clear();
         QDate date = dateEdit->date();
@@ -130,7 +121,6 @@ void AuditoriumManagement::BookAuditorium() {
             Auditorium *auditorium = it.value();
             QString auditoriumId = auditorium->GetId();
 
-            // Check if this auditorium is already booked on the selected date
             bool isBooked = IsAuditoriumBooked(auditoriumId, bookingDate);
 
             if (!isBooked) {
@@ -140,28 +130,22 @@ void AuditoriumManagement::BookAuditorium() {
         }
     };
 
-    // Initial population of the dropdown
     updateAvailableAuditoriums();
 
-    // Update the dropdown when date changes
     connect(dateEdit, &QDateEdit::dateChanged, [updateAvailableAuditoriums]() {
         updateAvailableAuditoriums();
     });
 
     formLayout.addRow("Auditorium:", auditoriumCombo);
 
-    // Add buttons
     QDialogButtonBox buttonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel,
                                Qt::Horizontal, &dialog);
     formLayout.addRow(&buttonBox);
 
-    // Connect buttons
     connect(&buttonBox, &QDialogButtonBox::accepted, &dialog, &QDialog::accept);
     connect(&buttonBox, &QDialogButtonBox::rejected, &dialog, &QDialog::reject);
 
-    // Show dialog and process result
     if (dialog.exec() == QDialog::Accepted) {
-        // Check if any auditorium is selected
         if (auditoriumCombo->count() == 0) {
             QMessageBox::information(this, "No Available Auditoriums",
                                      "There are no available auditoriums to book for the selected date.");
@@ -171,45 +155,38 @@ void AuditoriumManagement::BookAuditorium() {
         QString auditoriumId = auditoriumCombo->currentData().toString();
         QDate date = dateEdit->date();
 
-        // Create a BookingDate object
         BookingDate bookingDate(date.day(), date.month(), date.year());
 
-        // Validate booking date
         if (!IsValidBookingDate(bookingDate)) {
             QMessageBox::warning(this, "Invalid Date",
                                  "The selected date is not valid for booking.");
             return;
         }
 
-        // Add the booking
         if (!m_bookingMap.contains(bookingDate)) {
             m_bookingMap[bookingDate] = QList<QString>();
         }
         m_bookingMap[bookingDate].append(auditoriumId);
 
-        // Display success message
         QMessageBox::information(this, "Success",
                                  "Auditorium booked successfully for " +
                                      date.toString("MMMM d, yyyy"));
 
-        // Convert QMap to std::map
         std::map<BookingDate, std::list<std::string>> stdBookingMap;
         for (auto it = m_bookingMap.begin(); it != m_bookingMap.end(); ++it) {
             std::list<std::string> bookings;
             for (const QString &qstr : it.value()) {
-                bookings.push_back(qstr.toStdString());
+                bookings.push_back(qstr.toStdString());//converting qstring to std::string befor adding to std::list.
             }
             stdBookingMap[it.key()] = bookings;
         }
 
-        // Display updated calendar in the console
         CalenderManager calenderManager;
         calenderManager.PrintMonthCalendar(date.month(), date.year(), &stdBookingMap);
     }
 }
 
 void AuditoriumManagement::ExitApplication() {
-    // Ask for confirmation before exiting
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Exit Confirmation",
                                                               "Are you sure you want to exit the application?",
                                                               QMessageBox::Yes | QMessageBox::No);
@@ -227,17 +204,13 @@ bool AuditoriumManagement::IsAuditoriumBooked(const QString& auditoriumId, const
 }
 
 bool AuditoriumManagement::IsValidBookingDate(const BookingDate &bookingDate) {
-    // Get current date
     QDate currentDate = QDate::currentDate();
     QDate bookingQDate(bookingDate.GetYear(), bookingDate.GetMonth(), bookingDate.GetDay());
 
-    // Booking date should be today or in the future
     if (bookingQDate < currentDate) {
         return false;
     }
 
-    // Additional validation logic can be added here
-    // For example, limit bookings to next 6 months
     QDate maxDate = currentDate.addMonths(6);
     if (bookingQDate > maxDate) {
         return false;

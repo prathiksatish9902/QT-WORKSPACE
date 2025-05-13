@@ -47,27 +47,21 @@ void Month::PrintCalendar(int year, const std::map<int, int>* bookingCounts) con
     int daysInMonth = m_dateList.size();
     int firstDay = GetFirstDayOfMonth(MonthToInt(), year);
 
-    // Print month and year header in center
     QString header = QString("%1 %2").arg(m_month).arg(year);
-    int headerWidth = 49; // Fixed total width for the calendar
+    int headerWidth = 49;
     int headerPadding = (headerWidth - header.length()) / 2;
     QString centeredHeader = QString("%1%2").arg(QString(headerPadding, ' ')).arg(header);
 
-    // Print header
     qDebug().noquote() << "\n" << centeredHeader;
-    qDebug().noquote() << QString(headerWidth, '-'); // Full-width separator line
+    qDebug().noquote() << QString(headerWidth, '-');
 
-    // Day headers with fixed column width
     qDebug().noquote() << "  Sun       Mon       Tue       Wed       Thu       Fri       Sat  ";
 
-    // Print calendar rows
     int currentDay = 1;
 
-    // Calculate number of weeks (rows) needed
     int weeksNeeded = (firstDay + daysInMonth + 6) / 7;
 
     for (int week = 0; week < weeksNeeded; week++) {
-        // Start with empty line
         QString line = "";
 
         for (int dayOfWeek = 0; dayOfWeek < 7; dayOfWeek++) {

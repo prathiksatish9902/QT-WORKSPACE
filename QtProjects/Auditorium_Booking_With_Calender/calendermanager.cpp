@@ -56,7 +56,6 @@ void CalenderManager::PrintMonthCalendar(int month, int year, std::map<BookingDa
     m_currentMonth = month;
     m_currentYear = year;
 
-    // Display current month and year
     qDebug().noquote() << "\n=========================";
     QString monthName = IntToMonthName(month);
     qDebug().noquote() << QString("Displaying calendar for: %1 %2").arg(monthName).arg(year);
@@ -77,7 +76,6 @@ void CalenderManager::PrintMonthCalendar(int month, int year, std::map<BookingDa
             }
             m->PrintCalendar(year, &bookingCounts);
 
-            // Display navigation instructions
             qDebug().noquote() << "\nNavigation:";
             qDebug().noquote() << "- Use 'Next Month' to view the next month";
             qDebug().noquote() << "- Use 'Previous Month' to view the previous month";
@@ -152,10 +150,10 @@ void CalenderManager::setupUI() {
     setWindowTitle("Calendar Navigation");
 }
 
-// void CalenderManager::updateCalendarTitle() {
-//     // This would update the calendar title if we were using a GUI calendar
-//     // In our console-based implementation, the title is printed within PrintMonthCalendar
-// }
+void CalenderManager::updateCalendarTitle() {
+    // This would update the calendar title if we were using a GUI calendar
+    // In our console-based implementation, the title is printed within PrintMonthCalendar
+}
 
 QString CalenderManager::IntToMonthName(int month) {
     switch (month) {
