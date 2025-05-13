@@ -4,8 +4,9 @@
 #include <QMainWindow>
 #include <QPushButton>
 #include <QVBoxLayout>
-#include "auditoriummanagement.h" // Ensure this include is present
-
+#include <QLabel>
+#include "auditoriummanagement.h"
+#include "calendermanager.h"
 
 class MainWindow : public QMainWindow
 {
@@ -21,13 +22,30 @@ private slots:
     void onBookAuditoriumClicked();
     void onExitClicked();
 
+    // Calendar navigation slots
+    void onPrevMonthClicked();
+    void onNextMonthClicked();
+
 private:
+    // Auditorium buttons
     QPushButton *addAuditoriumButton;
     QPushButton *displayAuditoriumButton;
     QPushButton *bookAuditoriumButton;
     QPushButton *exitButton;
 
+    // Calendar navigation buttons
+    QPushButton *prevMonthButton;
+    QPushButton *nextMonthButton;
+    QLabel *currentMonthLabel;
+
+    // Calendar state
+    int currentMonth;
+    int currentYear;
+    void updateMonthLabel();
+
+    // Components
     AuditoriumManagement *auditoriumManagement;
+    CalenderManager *calenderManager;
 };
 
 #endif // MAINWINDOW_H

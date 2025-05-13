@@ -15,6 +15,8 @@
 #include <QSpinBox>
 #include <QFormLayout>
 #include <QDialogButtonBox>
+#include <QInputDialog>
+#include <QMessageBox>
 #include "auditorium.h"
 #include "bookingdate.h"
 
@@ -41,6 +43,5 @@ private:
     void setupUI();
 
     friend class MainWindow;
-
 };
 #endif // AUDITORIUMMANAGEMENT_H
