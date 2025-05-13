@@ -107,17 +107,25 @@ void CalenderManager::NavigateCalendar(int &month, int &year, bool nextMonth, st
     PrintMonthCalendar(month, year, bookingMap);
 }
 
+int CalenderManager::GetCurrentMonth() const
+{
+    return m_currentMonth;
+}
+
+int CalenderManager::GetCurrentYear() const
+{
+    return m_currentYear;
+}
+
 void CalenderManager::setupUI() {
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
 
-    // Month Year display
     QLabel *calendarTitle = new QLabel(this);
     calendarTitle->setText(QString("%1 %2").arg(IntToMonthName(m_currentMonth)).arg(m_currentYear));
     calendarTitle->setAlignment(Qt::AlignCenter);
     calendarTitle->setStyleSheet("font-size: 16pt; font-weight: bold;");
     mainLayout->addWidget(calendarTitle);
 
-    // Navigation buttons
     QHBoxLayout *buttonLayout = new QHBoxLayout();
     previousMonthButton = new QPushButton("Previous Month", this);
     nextMonthButton = new QPushButton("Next Month", this);
@@ -129,7 +137,6 @@ void CalenderManager::setupUI() {
 
     mainLayout->addLayout(buttonLayout);
 
-    // Connect buttons
     connect(previousMonthButton, &QPushButton::clicked, this, [this]() {
         NavigateCalendar(m_currentMonth, m_currentYear, false);
         updateCalendarTitle();
@@ -145,10 +152,10 @@ void CalenderManager::setupUI() {
     setWindowTitle("Calendar Navigation");
 }
 
-void CalenderManager::updateCalendarTitle() {
-    // This would update the calendar title if we were using a GUI calendar
-    // In our console-based implementation, the title is printed within PrintMonthCalendar
-}
+// void CalenderManager::updateCalendarTitle() {
+//     // This would update the calendar title if we were using a GUI calendar
+//     // In our console-based implementation, the title is printed within PrintMonthCalendar
+// }
 
 QString CalenderManager::IntToMonthName(int month) {
     switch (month) {

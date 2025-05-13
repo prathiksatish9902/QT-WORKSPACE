@@ -7,11 +7,9 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), auditoriumManagement(new AuditoriumManagement), calenderManager(new CalenderManager)
 {
-    // Set up central widget with main layout
     QWidget *centralWidget = new QWidget(this);
     QVBoxLayout *mainLayout = new QVBoxLayout(centralWidget);
 
-    // Create and configure the buttons group
     QGroupBox *buttonGroup = new QGroupBox("Auditorium Management", this);
     QVBoxLayout *buttonLayout = new QVBoxLayout(buttonGroup);
 
@@ -26,7 +24,6 @@ MainWindow::MainWindow(QWidget *parent)
     buttonLayout->addSpacing(10);
     buttonLayout->addWidget(exitButton);
 
-    // Create and configure calendar navigation group
     QGroupBox *calendarGroup = new QGroupBox("Calendar Navigation", this);
     QVBoxLayout *calendarLayout = new QVBoxLayout(calendarGroup);
 
@@ -42,32 +39,26 @@ MainWindow::MainWindow(QWidget *parent)
     navButtonLayout->addWidget(nextMonthButton);
     calendarLayout->addLayout(navButtonLayout);
 
-    // Add both groups to main layout
     mainLayout->addWidget(buttonGroup);
     mainLayout->addWidget(calendarGroup);
 
     setCentralWidget(centralWidget);
 
-    // Connect button signals
     connect(addAuditoriumButton, &QPushButton::clicked, this, &MainWindow::onAddAuditoriumClicked);
     connect(displayAuditoriumButton, &QPushButton::clicked, this, &MainWindow::onDisplayAuditoriumClicked);
     connect(bookAuditoriumButton, &QPushButton::clicked, this, &MainWindow::onBookAuditoriumClicked);
     connect(exitButton, &QPushButton::clicked, this, &MainWindow::onExitClicked);
 
-    // Connect calendar navigation buttons
     connect(prevMonthButton, &QPushButton::clicked, this, &MainWindow::onPrevMonthClicked);
     connect(nextMonthButton, &QPushButton::clicked, this, &MainWindow::onNextMonthClicked);
 
-    // Initialize components
     currentMonth = calenderManager->GetCurrentMonth();
     currentYear = calenderManager->GetCurrentYear();
     updateMonthLabel();
 
-    // Set window properties
     setWindowTitle("Auditorium Booking System");
     resize(400, 400);
 
-    // Initial calendar display
     calenderManager->PrintMonthCalendar(currentMonth, currentYear);
 }
 

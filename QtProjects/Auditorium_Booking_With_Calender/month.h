@@ -25,7 +25,7 @@ private:
     QVector<int> m_dateList;
 
     int GetFirstDayOfMonth(int month, int year) const;
-    int MonthToInt() const; // Helper method to convert month name to int
+    int MonthToInt() const;
 };
 
 #endif // MONTH_H

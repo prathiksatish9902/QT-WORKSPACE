@@ -43,49 +43,68 @@ int Month::GetCurrentDate(int date) const {
     return -1; // Invalid date
 }
 
-
-
 void Month::PrintCalendar(int year, const std::map<int, int>* bookingCounts) const {
     int daysInMonth = m_dateList.size();
     int firstDay = GetFirstDayOfMonth(MonthToInt(), year);
 
     // Print month and year header in center
     QString header = QString("%1 %2").arg(m_month).arg(year);
-    int headerPadding = (20 - header.length()) / 2;
+    int headerWidth = 49; // Fixed total width for the calendar
+    int headerPadding = (headerWidth - header.length()) / 2;
     QString centeredHeader = QString("%1%2").arg(QString(headerPadding, ' ')).arg(header);
+
+    // Print header
     qDebug().noquote() << "\n" << centeredHeader;
-    qDebug().noquote() << "--------------------";
-    qDebug().noquote() << "Sun Mon Tue Wed Thu Fri Sat";
+    qDebug().noquote() << QString(headerWidth, '-'); // Full-width separator line
 
-    // Print leading spaces for the first week
-    QString line = "";
-    for (int i = 0; i < firstDay; i++) {
-        line += "    ";  // 4 spaces for each empty cell
-    }
+    // Day headers with fixed column width
+    qDebug().noquote() << "  Sun       Mon       Tue       Wed       Thu       Fri       Sat  ";
 
-    // Print days with booking counts
-    for (int day = 1; day <= daysInMonth; day++) {
-        // Get booking count for this day (0 if no bookings)
-        int count = 0;
-        if (bookingCounts && bookingCounts->count(day) > 0) {
-            count = bookingCounts->at(day);
+    // Print calendar rows
+    int currentDay = 1;
+
+    // Calculate number of weeks (rows) needed
+    int weeksNeeded = (firstDay + daysInMonth + 6) / 7;
+
+    for (int week = 0; week < weeksNeeded; week++) {
+        // Start with empty line
+        QString line = "";
+
+        for (int dayOfWeek = 0; dayOfWeek < 7; dayOfWeek++) {
+            int dayPosition = week * 7 + dayOfWeek;
+            int dayNumber = dayPosition - firstDay + 1;
+
+            if (dayNumber < 1 || dayNumber > daysInMonth) {
+                line += "         ";
+            }
+            else {
+                int count = 0;
+                if (bookingCounts && bookingCounts->count(dayNumber) > 0) {
+                    count = bookingCounts->at(dayNumber);
+                }
+
+                QString dayDisplay;
+                if (dayNumber < 10) {
+                    dayDisplay = QString("   %1/%2    ").arg(dayNumber).arg(count);
+                } else {
+                    dayDisplay = QString("  %1/%2    ").arg(dayNumber).arg(count);
+                }
+
+                if (dayDisplay.length() > 9) {
+                    dayDisplay = dayDisplay.left(9);
+                } else while (dayDisplay.length() < 9) {
+                        dayDisplay += " ";
+                    }
+
+                line += dayDisplay;
+            }
         }
 
-        // Format as "day/count"
-        QString dayStr = QString("%1/%2").arg(day).arg(count);
-
-        // Add padding to maintain alignment (3 chars plus 1 space)
-        line += dayStr.rightJustified(3) + " ";
-
-        // If this is the last day of a week, print the line and reset
-        if ((day + firstDay) % 7 == 0 || day == daysInMonth) {
-            qDebug().noquote() << line;
-            line = "";
-        }
+        qDebug().noquote() << line;
     }
 }
+
 int Month::GetFirstDayOfMonth(int month, int year) const {
-    // Zeller's Congruence algorithm to find the day of week
     if (month < 3) {
         month += 12;
         year--;
@@ -96,7 +115,6 @@ int Month::GetFirstDayOfMonth(int month, int year) const {
 
     int dayOfWeek = (1 + ((13 * (month + 1)) / 5) + k + (k / 4) + (j / 4) - (2 * j)) % 7;
 
-    // Convert from Zeller's result (0 = Saturday) to Sunday = 0
     return (dayOfWeek + 6) % 7;
 }
 
@@ -113,7 +131,5 @@ int Month::MonthToInt() const {
     else if (m_month == "October") return 10;
     else if (m_month == "November") return 11;
     else if (m_month == "December") return 12;
-    return 1; // Default to January if invalid
+    return 1;
 }
-
-

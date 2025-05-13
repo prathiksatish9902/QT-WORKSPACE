@@ -24,9 +24,8 @@ public:
     void PrintMonthCalendar(int month, int year, std::map<BookingDate, std::list<std::string>>* bookingMap = nullptr);
     void NavigateCalendar(int &month, int &year, bool nextMonth, std::map<BookingDate, std::list<std::string>>* bookingMap = nullptr);
 
-    // Get current month and year being displayed
-    int GetCurrentMonth() const { return m_currentMonth; }
-    int GetCurrentYear() const { return m_currentYear; }
+    int GetCurrentMonth() const;
+    int GetCurrentYear() const;
 
 private:
     Calender *calender;
@@ -36,7 +35,7 @@ private:
 
     Year* GetOrCreateYear(int year);
     void setupUI();
-    void updateCalendarTitle();
+    // void updateCalendarTitle();
     QString IntToMonthName(int month);
 
     QPushButton *nextMonthButton;
