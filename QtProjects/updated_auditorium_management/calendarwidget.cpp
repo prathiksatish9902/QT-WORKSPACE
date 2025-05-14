@@ -5,26 +5,22 @@ CalendarWidget::CalendarWidget(QWidget *parent) : QWidget(parent),
     m_nextMonthButton(nullptr),
     m_monthYearLabel(nullptr)
 {
-    // Get current date
     time_t now = time(0);
     struct tm* current = localtime(&now);
-    m_currentMonth = current->tm_mon + 1; // tm_mon is 0-based
-    m_currentYear = current->tm_year + 1900; // Years since 1900
-    m_selectedDay = 0; // No day selected initially
+    m_currentMonth = current->tm_mon + 1;
+    m_currentYear = current->tm_year + 1900;
+    m_selectedDay = 0;
 
-    // Initialize auditorium management
     m_auditoriumManagement.AddAuditorium();
 
     setupUi();
     updateCalendar();
 
-    // Debug output
     qDebug() << "Calendar initialized with month:" << m_currentMonth << "year:" << m_currentYear;
 }
 
 CalendarWidget::~CalendarWidget()
 {
-    // Clean up resources
     delete m_prevMonthButton;
     delete m_nextMonthButton;
     delete m_monthYearLabel;
@@ -44,11 +40,9 @@ CalendarWidget::~CalendarWidget()
 
 void CalendarWidget::setupUi()
 {
-    // Configure main widget
     setWindowTitle("Calendar");
     resize(900, 600);
 
-    // Create navigation buttons
     m_prevMonthButton = new QPushButton("<", this);
     m_prevMonthButton->setGeometry(50, 20, 40, 30);
     connect(m_prevMonthButton, &QPushButton::clicked, this, &CalendarWidget::previousMonth);
@@ -62,7 +56,6 @@ void CalendarWidget::setupUi()
     m_nextMonthButton->setGeometry(610, 20, 40, 30);
     connect(m_nextMonthButton, &QPushButton::clicked, this, &CalendarWidget::nextMonth);
 
-    // Create day name buttons (Su, Mo, Tu, etc.)
     const char* dayNames[] = {"Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"};
 
     for (int i = 0; i < 7; i++) {
@@ -72,7 +65,6 @@ void CalendarWidget::setupUi()
         m_dayNameButtons.push_back(dayNameButton);
     }
 
-    // Auditorium management buttons
     m_addAuditoriumButton = new QPushButton("Add Auditorium", this);
     m_addAuditoriumButton->setGeometry(750, 100, 180, 30);
     connect(m_addAuditoriumButton, &QPushButton::clicked, this, &CalendarWidget::addAuditorium);
@@ -90,7 +82,6 @@ void CalendarWidget::setupUi()
     connect(exitButton, &QPushButton::clicked, this, &CalendarWidget::close);
 
     exitButton->show();
-    // Input fields
     m_bookingDateInput = new QLineEdit(this);
     m_bookingDateInput->setGeometry(750, 220, 180, 30);
     m_bookingDateInput->setPlaceholderText("DD MM YYYY");
@@ -99,12 +90,10 @@ void CalendarWidget::setupUi()
     m_auditoriumIdInput->setGeometry(750, 260, 180, 30);
     m_auditoriumIdInput->setPlaceholderText("Auditorium ID");
 
-    // Output display
     m_outputDisplay = new QTextEdit(this);
     m_outputDisplay->setGeometry(50, 450, 820, 120);
     m_outputDisplay->setReadOnly(true);
 
-    // Ensure all buttons are visible
     for (auto& button : m_dayNameButtons) {
         button->show();
     }
@@ -129,17 +118,13 @@ void CalendarWidget::clearDayButtons()
 
 void CalendarWidget::updateCalendar()
 {
-    // Update month/year label
     m_monthYearLabel->setText(QString::fromStdString(getMonthName(m_currentMonth) + " " + std::to_string(m_currentYear)));
 
-    // Clear existing day buttons
     clearDayButtons();
 
-    // Get days in month and first day of month
     int daysInMonth = getDaysInMonth(m_currentMonth, m_currentYear);
     int firstDay = getFirstDayOfMonth(m_currentMonth, m_currentYear);
 
-    // Create day buttons
     int row = 0;
     int col = firstDay;
 
@@ -149,7 +134,6 @@ void CalendarWidget::updateCalendar()
         dayButton->setProperty("day", day);
         connect(dayButton, &QPushButton::clicked, this, &CalendarWidget::dayClicked);
 
-        // Explicitly show the button
         dayButton->show();
 
         m_dayButtons.push_back(dayButton);
@@ -161,11 +145,9 @@ void CalendarWidget::updateCalendar()
         }
     }
 
-    // Debug to verify button creation
     qDebug() << "Created" << m_dayButtons.size() << "day buttons for"
              << getMonthName(m_currentMonth).c_str() << m_currentYear;
 
-    // Force update of the widget
     update();
 }
 
@@ -189,21 +171,7 @@ void CalendarWidget::previousMonth()
     updateCalendar();
 }
 
-// void CalendarWidget::dayClicked()
-// {
-//     QPushButton* button = qobject_cast<QPushButton*>(sender());
-//     if (button) {
-//         m_selectedDay = button->property("day").toInt();
 
-//         // Reset styling for all buttons
-//         for (auto dayButton : m_dayButtons) {
-//             dayButton->setStyleSheet("");
-//         }
-
-//         // Highlight the selected button
-//         button->setStyleSheet("background-color: #a6d4fa;");
-//     }
-// }
 
 void CalendarWidget::dayClicked()
 {
@@ -217,23 +185,14 @@ void CalendarWidget::dayClicked()
     }
 }
 
-// void CalendarWidget::addAuditorium()
-// {
-//     m_auditoriumManagement.AddAuditorium();
-//     m_outputDisplay->append("Auditoriums added successfully.");
-// }
+
 void CalendarWidget::addAuditorium()
 {
     m_auditoriumManagement.AddAuditorium();
     QMessageBox::information(this, "Success", "Auditoriums added successfully.");
 }
 
-// void CalendarWidget::displayAuditoriums()
-// {
-//     std::ostringstream oss;
-//     m_auditoriumManagement.DisplayAuditorium();
-//     m_outputDisplay->append(QString::fromStdString(oss.str()));
-// }
+
 
 void CalendarWidget::displayAuditoriums()
 {
@@ -255,34 +214,7 @@ void CalendarWidget::displayAuditoriums()
     QMessageBox::information(this, "Success", "Auditorium list displayed successfully.");
 }
 
-// void CalendarWidget::bookAuditorium()
-// {
-//     QString dateInput = m_bookingDateInput->text();
-//     QString auditoriumId = m_auditoriumIdInput->text();
 
-//     if (dateInput.isEmpty() || auditoriumId.isEmpty()) {
-//         m_outputDisplay->append("Please enter both booking date and auditorium ID.");
-//         return;
-//     }
-
-//     int day, month, year;
-//     std::istringstream iss(dateInput.toStdString());
-//     iss >> day >> month >> year;
-
-//     BookingDate bookingDate(day, month, year);
-//     if (!m_auditoriumManagement.IsValidBookingDate(bookingDate)) {
-//         m_outputDisplay->append("Invalid booking date.");
-//         return;
-//     }
-
-//     if (m_auditoriumManagement.IsAuditoriumBooked(auditoriumId.toStdString(), bookingDate)) {
-//         m_outputDisplay->append("Auditorium is already booked for the selected date.");
-//         return;
-//     }
-
-//     m_auditoriumManagement.m_bookingMap[bookingDate].push_back(auditoriumId.toStdString());
-//     m_outputDisplay->append("Auditorium booked successfully.");
-// }
 
 
 void CalendarWidget::bookAuditorium()
@@ -320,7 +252,7 @@ int CalendarWidget::getDaysInMonth(int month, int year)
 
     if (month == 2) {
         if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
-            return 29; // Leap year
+            return 29;
         }
     }
 
