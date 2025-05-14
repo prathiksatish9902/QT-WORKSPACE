@@ -91,7 +91,7 @@ void CalendarWidget::setupUi()
     m_auditoriumIdInput->setPlaceholderText("Auditorium ID");
 
     m_outputDisplay = new QTextEdit(this);
-    m_outputDisplay->setGeometry(50, 450, 820, 120);
+    m_outputDisplay->setGeometry(50, 450, 820, 250);
     m_outputDisplay->setReadOnly(true);
 
     for (auto& button : m_dayNameButtons) {
@@ -129,9 +129,19 @@ void CalendarWidget::updateCalendar()
     int col = firstDay;
 
     for (int day = 1; day <= daysInMonth; day++) {
-        QPushButton* dayButton = new QPushButton(QString::number(day), this);
+        BookingDate bookingDate(day, m_currentMonth, m_currentYear);
+        int bookingCount = m_auditoriumManagement.m_bookingMap[bookingDate].size();
+
+        QString buttonText = QString::number(day) + "/" + QString::number(bookingCount);
+
+        QPushButton* dayButton = new QPushButton(buttonText, this);
         dayButton->setGeometry(50 + (col * 85), 110 + (row * 60), 80, 55);
         dayButton->setProperty("day", day);
+
+        if (bookingCount == m_auditoriumManagement.GetAuditoriumMap().size()) {
+            dayButton->setStyleSheet("background-color: red; color: white;");
+        }
+
         connect(dayButton, &QPushButton::clicked, this, &CalendarWidget::dayClicked);
 
         dayButton->show();
@@ -181,7 +191,7 @@ void CalendarWidget::dayClicked()
         QString date = QString::number(m_selectedDay) + " " + QString::number(m_currentMonth) + " " + QString::number(m_currentYear);
         m_bookingDateInput->setText(date);
 
-        QMessageBox::information(this, "Date Selected", "Selected date: " + date);
+        showAuditoriumAvailability(m_selectedDay, m_currentMonth, m_currentYear);
     }
 }
 
@@ -197,16 +207,16 @@ void CalendarWidget::addAuditorium()
 void CalendarWidget::displayAuditoriums()
 {
     std::ostringstream oss;
-    oss << "Auditorium ID" << std::setw(20) << "Auditorium Name" << std::setw(20)
-        << "Seat Capacity" << std::setw(15) << "Status" << "\n";
-    oss << "---------------------------------------------------------------------------------\n";
+    oss << "Auditorium ID" << std::setw(25) << "Auditorium Name" << std::setw(25)
+        << "Seat Capacity" << std::setw(25) << "Status" << "\n";
+    oss << "--------------------------------------------------------------------------------------------------------------------------------\n";
 
     const auto& auditoriumMap = m_auditoriumManagement.GetAuditoriumMap();
     for (const auto& pair : auditoriumMap) {
         Auditorium* auditorium = pair.second;
         if (auditorium->GetStatus() == "available") {
-            oss << pair.first << std::setw(20) << auditorium->GetName() << std::setw(20)
-            << auditorium->GetSeatCapacity() << std::setw(20) << auditorium->GetStatus() << "\n";
+            oss << pair.first << std::setw(30) << auditorium->GetName() << std::setw(35)
+            << auditorium->GetSeatCapacity() << std::setw(35) << auditorium->GetStatus() << "\n";
         }
     }
 
@@ -243,9 +253,71 @@ void CalendarWidget::bookAuditorium()
     }
 
     m_auditoriumManagement.m_bookingMap[bookingDate].push_back(auditoriumId.toStdString());
-    QMessageBox::information(this, "Success", "Auditorium booked successfully.");
+
+    int bookingCount = m_auditoriumManagement.m_bookingMap[bookingDate].size();
+    int totalAuditoriums = m_auditoriumManagement.GetAuditoriumMap().size();
+
+    if (bookingCount == totalAuditoriums) {
+        QMessageBox::information(this, "Fully Booked", "All auditoriums are booked for this date.");
+    } else {
+        QMessageBox::information(this, "Success", "Auditorium booked successfully.");
+    }
+    m_bookingDateInput->clear();
+    m_auditoriumIdInput->clear();
+    updateCalendar();
 }
 
+void CalendarWidget::showAuditoriumAvailability(int day, int month, int year)
+{
+    QDialog* dialog = new QDialog(this);
+    dialog->setWindowTitle("Auditorium Availability");
+    dialog->resize(500, 400);
+
+    QVBoxLayout* layout = new QVBoxLayout(dialog);
+
+    QLabel* dateLabel = new QLabel(QString("Availability for %1/%2/%3").arg(day).arg(month).arg(year), dialog);
+    layout->addWidget(dateLabel);
+
+    QTableWidget* table = new QTableWidget(dialog);
+    table->setColumnCount(3);
+    table->setHorizontalHeaderLabels({"Auditorium ID", "Name", "Status"});
+    table->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+
+    BookingDate bookingDate(day, month, year);
+
+    const auto& auditoriumMap = m_auditoriumManagement.GetAuditoriumMap();
+    table->setRowCount(auditoriumMap.size());
+
+    int row = 0;
+    for (const auto& pair : auditoriumMap) {
+        const std::string& auditoriumId = pair.first;
+        Auditorium* auditorium = pair.second;
+
+        QString status = m_auditoriumManagement.IsAuditoriumBooked(auditoriumId, bookingDate) ? "Booked" : "Available";
+
+        table->setItem(row, 0, new QTableWidgetItem(QString::fromStdString(auditoriumId)));
+        table->setItem(row, 1, new QTableWidgetItem(QString::fromStdString(auditorium->GetName())));
+        table->setItem(row, 2, new QTableWidgetItem(status));
+
+        if (status == "Booked") {
+            for (int col = 0; col < 3; ++col) {
+                table->item(row, col)->setBackground(Qt::red);
+                table->item(row, col)->setForeground(Qt::white);
+            }
+        }
+
+        row++;
+    }
+
+    layout->addWidget(table);
+
+    QPushButton* closeButton = new QPushButton("Close", dialog);
+    connect(closeButton, &QPushButton::clicked, dialog, &QDialog::accept);
+    layout->addWidget(closeButton);
+
+    dialog->setLayout(layout);
+    dialog->exec();
+}
 int CalendarWidget::getDaysInMonth(int month, int year)
 {
     int daysInMonth[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};

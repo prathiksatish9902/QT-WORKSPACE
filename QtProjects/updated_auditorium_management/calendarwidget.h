@@ -12,22 +12,28 @@
 #include <string>
 #include <QDebug>
 #include "auditoriummanagement.h"
+#include <QDialog>
+#include <QVBoxLayout>
+#include <QLabel>
+#include <QTableWidget>
+#include <QHeaderView>
 
 class CalendarWidget : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit CalendarWidget(QWidget *parent = nullptr);
+    /*explicit*/ CalendarWidget(QWidget *parent = nullptr);
     ~CalendarWidget();
 
-public slots:
     void nextMonth();
     void previousMonth();
     void dayClicked();
     void addAuditorium();
     void displayAuditoriums();
     void bookAuditorium();
+    void showAuditoriumAvailability(int day, int month, int year);
+
 
 private:
     QPushButton *m_prevMonthButton;
