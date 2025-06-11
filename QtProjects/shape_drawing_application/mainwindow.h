@@ -15,7 +15,8 @@ public:
     MainWindow(QWidget *parent = nullptr);
 
 private slots:
-void onShapeButtonClicked(DrawArea::ShapeType shape);
+    void onShapeButtonClicked(DrawArea::ShapeType shape);
+
 private:
     DrawArea *drawArea;
     QLineEdit *penWidthEdit;

@@ -8,7 +8,7 @@ class DrawArea : public QWidget {
     Q_OBJECT
 
 public:
-    enum class ShapeType {
+    enum ShapeType {
         None,
         Circle,
         Rectangle,
@@ -25,7 +25,7 @@ public:
     void setPenColor(const QColor &color);
     void setBrushColor(const QColor &color);
 
-    ShapeType currentShapeType() const { return currentShape; }
+    ShapeType currentShapeType() const;
 
 protected:
     void paintEvent(QPaintEvent *event) override;

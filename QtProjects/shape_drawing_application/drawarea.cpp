@@ -1,7 +1,7 @@
 #include "drawarea.h"
 #include <QPainter>
 
-DrawArea::DrawArea(QWidget *parent) : QWidget(parent), currentShape(ShapeType::None), penWidth(1), penColor(Qt::black), brushColor(Qt::white) {
+DrawArea::DrawArea(QWidget *parent) : QWidget(parent), currentShape(None), penWidth(1), penColor(Qt::black), brushColor(Qt::white) {
     setMinimumSize(400, 400);
 }
 
@@ -25,6 +25,11 @@ void DrawArea::setBrushColor(const QColor &color) {
     update();
 }
 
+DrawArea::ShapeType DrawArea::currentShapeType() const
+{
+    return currentShape;
+}
+
 void DrawArea::paintEvent(QPaintEvent *) {
     QPainter painter(this);
     painter.setPen(QPen(penColor, penWidth));
@@ -33,26 +38,26 @@ void DrawArea::paintEvent(QPaintEvent *) {
     QRect rect(100, 100, 200, 200);
 
     switch (currentShape) {
-    case ShapeType::Circle:
+    case Circle:
         painter.drawEllipse(rect);
         break;
-    case ShapeType::Rectangle:
-        painter.drawRect(100, 100, 300, 150); // width=300, height=150 for rectangle
+    case Rectangle:
+        painter.drawRect(100, 100, 300, 150);
         break;
-    case ShapeType::Square:
-        painter.drawRect(100, 100, 200, 200); // width=200, height=200 for square
+    case Square:
+        painter.drawRect(100, 100, 200, 200);
         break;
-    case ShapeType::Pentagon: {
+    case Pentagon: {
         QPolygon polygon;
         polygon << QPoint(200, 100) << QPoint(300, 160) << QPoint(260, 260)
                 << QPoint(140, 260) << QPoint(100, 160);
         painter.drawPolygon(polygon);
         break;
     }
-    case ShapeType::Line:
+    case Line:
         painter.drawLine(100, 100, 300, 300);
         break;
-    case ShapeType::CurvedLine: {
+    case CurvedLine: {
         QPainterPath path;
         path.moveTo(100, 200);
         path.cubicTo(150, 100, 250, 300, 300, 200);
