@@ -31,10 +31,10 @@ protected:
     void paintEvent(QPaintEvent *event) override;
 
 private:
-    ShapeType currentShape;
-    int penWidth;
-    QColor penColor;
-    QColor brushColor;
+    ShapeType m_currentShape;
+    int m_penWidth;
+    QColor m_penColor;
+    QColor m_brushColor;
 };
 
 #endif // DRAWAREA_H

@@ -2,60 +2,50 @@
 #include "drawarea.h"
 #include <QLabel>
 
-MainWindow::MainWindow(QWidget *parent) : QWidget(parent) {
-    drawArea = new DrawArea(this);
-    penWidthEdit = new QLineEdit("2", this);
-    penColorEdit = new QLineEdit("black", this);
-    brushColorEdit = new QLineEdit("white", this);
+MainWindow::MainWindow(QWidget *parent) : QWidget(parent),
+    m_shapeTypes{DrawArea::Circle, DrawArea::Rectangle, DrawArea::Square, DrawArea::Pentagon, DrawArea::Line, DrawArea::CurvedLine},
+    m_shapeNames{"Circle", "Rectangle", "Square", "Pentagon", "Line", "CurvedLine"}
+{
+    m_drawArea = new DrawArea(this);
+    m_penWidthEdit = new QLineEdit("2", this);
+    m_penColorEdit = new QLineEdit("black", this);
+    m_brushColorEdit = new QLineEdit("white", this);
 
+    m_mainLayout = new QHBoxLayout(this);
 
-    QHBoxLayout *mainLayout = new QHBoxLayout(this);
-
-
-    QVBoxLayout *shapeButtonsLayout = new QVBoxLayout();
-    QList<DrawArea::ShapeType> shapeTypes = {
-        DrawArea::Circle,
-        DrawArea::Rectangle,
-        DrawArea::Square,
-        DrawArea::Pentagon,
-        DrawArea::Line,
-        DrawArea::CurvedLine
-    };
-    QStringList shapeNames = {"Circle", "Rectangle", "Square", "Pentagon", "Line", "CurvedLine"};
-
-    for (int i = 0; i < shapeTypes.size(); ++i) {
-        QPushButton *button = new QPushButton(shapeNames[i], this);
-        shapeButtonsLayout->addWidget(button);
+    m_shapeButtonsLayout = new QVBoxLayout();
+    for (int i = 0; i < m_shapeTypes.size(); ++i) {
+        QPushButton *button = new QPushButton(m_shapeNames[i], this);
+        m_shapeButtonsLayout->addWidget(button);
         connect(button, &QPushButton::clicked, this, [=]() {
-            onShapeButtonClicked(shapeTypes[i]);
+            onShapeButtonClicked(m_shapeTypes[i]);
         });
     }
-    shapeButtonsLayout->addStretch();
+    m_shapeButtonsLayout->addStretch();
 
-    QVBoxLayout *rightLayout = new QVBoxLayout();
+    m_rightLayout = new QVBoxLayout();
 
+    m_controlsLayout = new QHBoxLayout();
+    m_controlsLayout->addWidget(new QLabel("Pen Width:"));
+    m_controlsLayout->addWidget(m_penWidthEdit);
+    m_controlsLayout->addWidget(new QLabel("Pen Color:"));
+    m_controlsLayout->addWidget(m_penColorEdit);
+    m_controlsLayout->addWidget(new QLabel("Brush Color:"));
+    m_controlsLayout->addWidget(m_brushColorEdit);
 
-    QHBoxLayout *controlsLayout = new QHBoxLayout();
-    controlsLayout->addWidget(new QLabel("Pen Width:"));
-    controlsLayout->addWidget(penWidthEdit);
-    controlsLayout->addWidget(new QLabel("Pen Color:"));
-    controlsLayout->addWidget(penColorEdit);
-    controlsLayout->addWidget(new QLabel("Brush Color:"));
-    controlsLayout->addWidget(brushColorEdit);
+    m_rightLayout->addLayout(m_controlsLayout);
+    m_rightLayout->addWidget(m_drawArea, 1);
 
-    rightLayout->addLayout(controlsLayout);
-    rightLayout->addWidget(drawArea, 1);
+    m_mainLayout->addLayout(m_shapeButtonsLayout);
+    m_mainLayout->addLayout(m_rightLayout, 1);
 
-    mainLayout->addLayout(shapeButtonsLayout);
-    mainLayout->addLayout(rightLayout, 1);
-
-    setLayout(mainLayout);
+    setLayout(m_mainLayout);
 }
 
 void MainWindow::onShapeButtonClicked(DrawArea::ShapeType shape) {
-    drawArea->setShape(shape);
-    drawArea->setPenWidth(penWidthEdit->text().toInt());
-    drawArea->setPenColor(QColor(penColorEdit->text()));
-    drawArea->setBrushColor(QColor(brushColorEdit->text()));
-    drawArea->update();
+    m_drawArea->setShape(shape);
+    m_drawArea->setPenWidth(m_penWidthEdit->text().toInt());
+    m_drawArea->setPenColor(QColor(m_penColorEdit->text()));
+    m_drawArea->setBrushColor(QColor(m_brushColorEdit->text()));
+    m_drawArea->update();
 }

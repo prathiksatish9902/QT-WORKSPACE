@@ -8,7 +8,8 @@ int main(int argc, char *argv[])
 {
     QCoreApplication app(argc, argv);
 
-    QByteArray buffer(123, Qt::Initialization::Uninitialized);
+    // QByteArray buffer(123, Qt::Initialization::Uninitialized);
+    QByteArray buffer(123, Qt::Uninitialized);
 
     // Optional: initialize the contents to 0
     memset(buffer.data(), 0, buffer.size());

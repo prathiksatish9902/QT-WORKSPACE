@@ -18,10 +18,16 @@ private slots:
     void onShapeButtonClicked(DrawArea::ShapeType shape);
 
 private:
-    DrawArea *drawArea;
-    QLineEdit *penWidthEdit;
-    QLineEdit *penColorEdit;
-    QLineEdit *brushColorEdit;
+    DrawArea *m_drawArea;
+    QLineEdit *m_penWidthEdit;
+    QLineEdit *m_penColorEdit;
+    QLineEdit *m_brushColorEdit;
+    QHBoxLayout *m_mainLayout;
+    QVBoxLayout *m_shapeButtonsLayout;
+    QVBoxLayout *m_rightLayout;
+    QHBoxLayout *m_controlsLayout;
+    QList<DrawArea::ShapeType> m_shapeTypes;
+    QStringList m_shapeNames;
 };
 
 #endif // MAINWINDOW_H

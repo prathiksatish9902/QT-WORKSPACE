@@ -1,43 +1,44 @@
 #include "drawarea.h"
 #include <QPainter>
 
-DrawArea::DrawArea(QWidget *parent) : QWidget(parent), currentShape(None), penWidth(1), penColor(Qt::black), brushColor(Qt::white) {
+DrawArea::DrawArea(QWidget *parent)
+    : QWidget(parent), m_currentShape(None), m_penWidth(1), m_penColor(Qt::black), m_brushColor(Qt::white) {
     setMinimumSize(400, 400);
 }
 
 void DrawArea::setShape(ShapeType shape) {
-    currentShape = shape;
+    m_currentShape = shape;
     update();
 }
 
 void DrawArea::setPenWidth(int width) {
-    penWidth = width;
+    m_penWidth = width;
     update();
 }
 
 void DrawArea::setPenColor(const QColor &color) {
-    penColor = color;
+    m_penColor = color;
     update();
 }
 
 void DrawArea::setBrushColor(const QColor &color) {
-    brushColor = color;
+    m_brushColor = color;
     update();
 }
 
 DrawArea::ShapeType DrawArea::currentShapeType() const
 {
-    return currentShape;
+    return m_currentShape;
 }
 
 void DrawArea::paintEvent(QPaintEvent *) {
     QPainter painter(this);
-    painter.setPen(QPen(penColor, penWidth));
-    painter.setBrush(QBrush(brushColor));
+    painter.setPen(QPen(m_penColor, m_penWidth));
+    painter.setBrush(QBrush(m_brushColor));
 
     QRect rect(100, 100, 200, 200);
 
-    switch (currentShape) {
+    switch (m_currentShape) {
     case Circle:
         painter.drawEllipse(rect);
         break;
