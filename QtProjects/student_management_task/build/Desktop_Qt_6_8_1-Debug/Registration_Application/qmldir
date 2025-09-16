@@ -1,0 +1,6 @@
+module Registration_Application
+typeinfo appRegistration_Application.qmltypes
+prefer :/Registration_Application/
+LoginPage 1.0 LoginPage.qml
+RegisterPage 1.0 RegisterPage.qml
+

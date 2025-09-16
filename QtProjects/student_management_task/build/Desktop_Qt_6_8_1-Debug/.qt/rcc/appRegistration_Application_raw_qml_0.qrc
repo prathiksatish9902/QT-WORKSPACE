@@ -1,0 +1,8 @@
+<RCC>
+  <qresource prefix="/Registration_Application/">
+    <file alias="main.qml">/home/prathik/QT WORKSPACE/QtProjects/student_management_task/main.qml</file>
+    <file alias="LoginPage.qml">/home/prathik/QT WORKSPACE/QtProjects/student_management_task/LoginPage.qml</file>
+    <file alias="RegisterPage.qml">/home/prathik/QT WORKSPACE/QtProjects/student_management_task/RegisterPage.qml</file>
+  </qresource>
+</RCC>
+

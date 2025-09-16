@@ -1,0 +1,36 @@
+[
+    {
+        "moduleFiles": [
+            {
+                "entries": [
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 17,
+                        "durationMicroseconds": 949,
+                        "errorMessage": "",
+                        "functionName": "height",
+                        "line": 16
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 16,
+                        "durationMicroseconds": 158,
+                        "errorMessage": "",
+                        "functionName": "width",
+                        "line": 17
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 27,
+                        "durationMicroseconds": 66,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 18
+                    }
+                ],
+                "filepath": "/home/prathik/QT WORKSPACE/QtProjects/student_management_task/main.qml"
+            }
+        ],
+        "moduleId": "Registration_Application(appRegistration_Application)"
+    }
+]

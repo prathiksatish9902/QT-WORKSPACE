@@ -1,0 +1,4 @@
+module qml_anchors_example2
+typeinfo appqml_anchors_example2.qmltypes
+prefer :/qml_anchors_example2/
+

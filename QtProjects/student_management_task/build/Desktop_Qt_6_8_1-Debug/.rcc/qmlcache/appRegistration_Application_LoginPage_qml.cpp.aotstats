@@ -1,0 +1,92 @@
+[
+    {
+        "moduleFiles": [
+            {
+                "entries": [
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 33,
+                        "durationMicroseconds": 199,
+                        "errorMessage": "",
+                        "functionName": "verticalCenter",
+                        "line": 13
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 35,
+                        "durationMicroseconds": 121,
+                        "errorMessage": "",
+                        "functionName": "horizontalCenter",
+                        "line": 14
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 20,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Cannot resolve property type  for binding on width.",
+                        "functionName": "width",
+                        "line": 24
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 20,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Cannot resolve property type  for binding on width.",
+                        "functionName": "width",
+                        "line": 41
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 20,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Cannot resolve property type  for binding on width.",
+                        "functionName": "width",
+                        "line": 51
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 24,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Cannot resolve property type  for binding on onClicked.",
+                        "functionName": "onClicked",
+                        "line": 63
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 35,
+                        "durationMicroseconds": 66,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 57
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 20,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Cannot resolve property type  for binding on width.",
+                        "functionName": "width",
+                        "line": 70
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 24,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Cannot resolve property type  for binding on onClicked.",
+                        "functionName": "onClicked",
+                        "line": 82
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 35,
+                        "durationMicroseconds": 74,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 76
+                    }
+                ],
+                "filepath": "/home/prathik/QT WORKSPACE/QtProjects/student_management_task/LoginPage.qml"
+            }
+        ],
+        "moduleId": "Registration_Application(appRegistration_Application)"
+    }
+]

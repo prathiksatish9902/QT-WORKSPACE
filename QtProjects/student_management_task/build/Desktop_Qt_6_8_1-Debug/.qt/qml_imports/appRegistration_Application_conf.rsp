@@ -1,0 +1,14 @@
+-rootPath
+/home/prathik/QT WORKSPACE/QtProjects/student_management_task
+-cmake-output
+-output-file
+/home/prathik/QT WORKSPACE/QtProjects/student_management_task/build/Desktop_Qt_6_8_1-Debug/.qt/qml_imports/appRegistration_Application_conf.cmake
+-importPath
+/home/prathik/QT WORKSPACE/QtProjects/student_management_task/build/Desktop_Qt_6_8_1-Debug/Registration_Application
+-importPath
+/home/prathik/QT WORKSPACE/QtProjects/student_management_task/build/Desktop_Qt_6_8_1-Debug
+-importPath
+/home/prathik/Qt/6.8.1/gcc_64/qml
+-qrcFiles
+/home/prathik/QT WORKSPACE/QtProjects/student_management_task/build/Desktop_Qt_6_8_1-Debug/.qt/rcc/qmake_Registration_Application.qrc
+/home/prathik/QT WORKSPACE/QtProjects/student_management_task/build/Desktop_Qt_6_8_1-Debug/.qt/rcc/appRegistration_Application_raw_qml_0.qrc

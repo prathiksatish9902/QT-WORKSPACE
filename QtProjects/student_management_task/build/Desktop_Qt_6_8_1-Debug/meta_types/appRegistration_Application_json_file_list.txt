@@ -1,0 +1,1 @@
+/home/prathik/QT WORKSPACE/QtProjects/student_management_task/build/Desktop_Qt_6_8_1-Debug/appRegistration_Application_autogen/include/../EWIEGA46WW/moc_LoginHandler.cpp.json

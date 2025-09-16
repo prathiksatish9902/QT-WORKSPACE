@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Components/OperationalButton.qml</file>
+        <file>Icons/wrench.png</file>
+        <file>Components/HomePage.qml</file>
+        <file>Icons/setup.png</file>
+        <file>Icons/support.png</file>
+        <file>Icons/tools.png</file>
+        <file>Icons/favourite.png</file>
+        <file>Components/OperationalIcon.qml</file>
+        <file>Icons/cuttingicon.png</file>
+        <file>Components/ProductionPage.qml</file>
+    </qresource>
+</RCC>

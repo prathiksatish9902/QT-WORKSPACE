@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/qml_loginpage">
+    <file alias="qmldir">/home/prathik/QT WORKSPACE/QtExamples/qml_loginpage/build/Desktop_Qt_6_8_1-Debug/qml_loginpage/qmldir</file>
+  </qresource>
+</RCC>
+

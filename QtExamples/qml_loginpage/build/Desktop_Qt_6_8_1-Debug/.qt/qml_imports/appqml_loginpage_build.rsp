@@ -1,0 +1,14 @@
+-rootPath
+/home/prathik/QT WORKSPACE/QML_examples/qml_loginpage
+-cmake-output
+-output-file
+/home/prathik/QT WORKSPACE/QtExamples/qml_loginpage/build/Desktop_Qt_6_8_1-Debug/.qt/qml_imports/appqml_loginpage_build.cmake
+-importPath
+/home/prathik/QT WORKSPACE/QtExamples/qml_loginpage/build/Desktop_Qt_6_8_1-Debug/qml_loginpage
+-importPath
+/home/prathik/QT WORKSPACE/QtExamples/qml_loginpage/build/Desktop_Qt_6_8_1-Debug
+-importPath
+/home/prathik/Qt/6.8.1/gcc_64/qml
+-qrcFiles
+/home/prathik/QT WORKSPACE/QtExamples/qml_loginpage/build/Desktop_Qt_6_8_1-Debug/.qt/rcc/qmake_qml_loginpage.qrc
+/home/prathik/QT WORKSPACE/QtExamples/qml_loginpage/build/Desktop_Qt_6_8_1-Debug/.qt/rcc/appqml_loginpage_raw_qml_0.qrc

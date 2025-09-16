@@ -1,0 +1,2 @@
+set(__QT_DEPLOY_TARGET_appqml_loginpage_FILE /home/prathik/QT WORKSPACE/QtExamples/qml_loginpage/build/Desktop_Qt_6_8_1-Debug/appqml_loginpage)
+set(__QT_DEPLOY_TARGET_appqml_loginpage_TYPE EXECUTABLE)

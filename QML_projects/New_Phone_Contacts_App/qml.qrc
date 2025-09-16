@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>QmlPages/ContactListPage.qml</file>
+        <file>QmlPages/AddContactPage.qml</file>
+        <file>QmlPages/ContactInfoPage.qml</file>
+        <file>Images/SearchIcon.png</file>
+        <file>Images/ProfilePicIcon.png</file>
+        <file>Images/AddButtonIcon.png</file>
+        <file>Images/BackButtonIcon.png</file>
+        <file>Images/OptionButtonIcon.png</file>
+    </qresource>
+</RCC>

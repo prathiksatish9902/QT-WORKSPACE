@@ -1,0 +1,2 @@
+set(__QT_DEPLOY_TARGET_appRegistration_Application_FILE /home/prathik/QT WORKSPACE/QtProjects/student_management_task/build/Desktop_Qt_6_8_1-Debug/appRegistration_Application)
+set(__QT_DEPLOY_TARGET_appRegistration_Application_TYPE EXECUTABLE)

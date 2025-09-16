@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Authentication/WelcomePage.qml</file>
+        <file>Authentication/SigninPage.qml</file>
+        <file>Authentication/SignupPage.qml</file>
+        <file>Authentication/ShowData.qml</file>
+        <file>Authentication/DataHeader.qml</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,40 @@
+# ninja log v5
+7	31	1752493794655594231	/home/prathik/QT WORKSPACE/QtExamples/qml_loginpage/build/Desktop_Qt_6_8_1-Debug/appqml_loginpage_autogen/timestamp	a017abf7d8270da7
+94	179	1752557517381504195	.rcc/qmlcache/appqml_loginpage_main_qml.cpp	929451c65f346629
+95	102	1752557517308496662	/home/prathik/QT WORKSPACE/QtExamples/qml_loginpage/build/Desktop_Qt_6_8_1-Debug/.qt/rcc/qrc_appqml_loginpage_raw_qml_0.cpp	bf850898ccca94c9
+231	270	1752160994549708085	CMakeFiles/appqml_loginpage.dir/.qt/rcc/qrc_qmake_qml_loginpage.cpp.o	f0287208a0e55b1b
+179	208	1752557517413507497	CMakeFiles/appqml_loginpage.dir/.qt/rcc/qrc_appqml_loginpage_raw_qml_0.cpp.o	a176eb5d7b22ba09
+46	2920	1752493797834723889	CMakeFiles/appqml_loginpage.dir/LoginCredential.cpp.o	411839b9e4befce6
+94	179	1752557517381504195	.rcc/qmlcache/appqml_loginpage_main_qml.cpp.aotstats	929451c65f346629
+9	13	1752557517219487477	qml_loginpage/main.qml	d4c563fe8d119385
+34	38	1752493794954606415	meta_types/appqml_loginpage_json_file_list.txt.timestamp	4bc843aa7837cd43
+94	179	1752557517381504195	/home/prathik/QT WORKSPACE/QtExamples/qml_loginpage/build/Desktop_Qt_6_8_1-Debug/.rcc/qmlcache/appqml_loginpage_main_qml.cpp	929451c65f346629
+459	503	1752491194070421890	appqml_loginpage_qmltyperegistrations.cpp	6476a7a941461ca6
+231	3027	1752160997305778884	CMakeFiles/appqml_loginpage.dir/.rcc/qmlcache/appqml_loginpage_qmlcache_loader.cpp.o	7eae53ddf64282b4
+66	73	1752160994352703023	.qt/rcc/qrc_qmake_qml_loginpage.cpp	cc5432e6a967bac5
+38	46	1752493794954606415	meta_types/qt6appqml_loginpage_debug_metatypes.json.gen	2727c3ef7d7825a
+38	46	1752493794954606415	meta_types/qt6appqml_loginpage_debug_metatypes.json	2727c3ef7d7825a
+34	38	1752493794954606415	/home/prathik/QT WORKSPACE/QtExamples/qml_loginpage/build/Desktop_Qt_6_8_1-Debug/meta_types/appqml_loginpage_json_file_list.txt.timestamp	4bc843aa7837cd43
+556	3339	1752491196914379848	CMakeFiles/appqml_loginpage.dir/appqml_loginpage_qmltyperegistrations.cpp.o	7bdb9629f92b0ff0
+9	94	1752557517299495733	.qt/qml_imports/appqml_loginpage_build.cmake	5014dd0c5617bc47
+34	38	1752493794954606415	/home/prathik/QT WORKSPACE/QtExamples/qml_loginpage/build/Desktop_Qt_6_8_1-Debug/meta_types/appqml_loginpage_json_file_list.txt	4bc843aa7837cd43
+7	31	1752493794655594231	appqml_loginpage_autogen/mocs_compilation.cpp	a017abf7d8270da7
+9	13	1752557517219487477	/home/prathik/QT WORKSPACE/QtExamples/qml_loginpage/build/Desktop_Qt_6_8_1-Debug/qml_loginpage/main.qml	d4c563fe8d119385
+9	94	1752557517299495733	/home/prathik/QT WORKSPACE/QtExamples/qml_loginpage/build/Desktop_Qt_6_8_1-Debug/.qt/qml_imports/appqml_loginpage_build.cmake	5014dd0c5617bc47
+95	102	1752557517308496662	.qt/rcc/qrc_appqml_loginpage_raw_qml_0.cpp	bf850898ccca94c9
+459	503	1752491194070421890	/home/prathik/QT WORKSPACE/QtExamples/qml_loginpage/build/Desktop_Qt_6_8_1-Debug/qml_loginpage/appqml_loginpage.qmltypes	6476a7a941461ca6
+7	31	1752493794655594231	/home/prathik/QT WORKSPACE/QtExamples/qml_loginpage/build/Desktop_Qt_6_8_1-Debug/appqml_loginpage_autogen/mocs_compilation.cpp	a017abf7d8270da7
+66	80	1752160994357703151	.rcc/qmlcache/appqml_loginpage_qmlcache_loader.cpp	d52647d0b0a291d1
+38	46	1752493794954606415	/home/prathik/QT WORKSPACE/QtExamples/qml_loginpage/build/Desktop_Qt_6_8_1-Debug/meta_types/qt6appqml_loginpage_debug_metatypes.json.gen	2727c3ef7d7825a
+26	2184	1752491624984553139	CMakeFiles/appqml_loginpage.dir/main.cpp.o	d7041df4176169f4
+34	38	1752493794954606415	meta_types/appqml_loginpage_json_file_list.txt	4bc843aa7837cd43
+66	80	1752160994357703151	/home/prathik/QT WORKSPACE/QtExamples/qml_loginpage/build/Desktop_Qt_6_8_1-Debug/.rcc/qmlcache/appqml_loginpage_qmlcache_loader.cpp	d52647d0b0a291d1
+7	31	1752493794655594231	appqml_loginpage_autogen/timestamp	a017abf7d8270da7
+94	179	1752557517381504195	/home/prathik/QT WORKSPACE/QtExamples/qml_loginpage/build/Desktop_Qt_6_8_1-Debug/.rcc/qmlcache/appqml_loginpage_main_qml.cpp.aotstats	929451c65f346629
+459	503	1752491194070421890	/home/prathik/QT WORKSPACE/QtExamples/qml_loginpage/build/Desktop_Qt_6_8_1-Debug/appqml_loginpage_qmltyperegistrations.cpp	6476a7a941461ca6
+454	2291	1752491431496743487	CMakeFiles/appqml_loginpage.dir/appqml_loginpage_autogen/mocs_compilation.cpp.o	ed649af47490b523
+66	73	1752160994352703023	/home/prathik/QT WORKSPACE/QtExamples/qml_loginpage/build/Desktop_Qt_6_8_1-Debug/.qt/rcc/qrc_qmake_qml_loginpage.cpp	cc5432e6a967bac5
+38	46	1752493794954606415	/home/prathik/QT WORKSPACE/QtExamples/qml_loginpage/build/Desktop_Qt_6_8_1-Debug/meta_types/qt6appqml_loginpage_debug_metatypes.json	2727c3ef7d7825a
+179	2013	1752557519217693350	CMakeFiles/appqml_loginpage.dir/.rcc/qmlcache/appqml_loginpage_main_qml.cpp.o	1ba437b15499c395
+2013	2418	1752557519620734765	appqml_loginpage	6fe964cfbbbf3efb
+459	503	1752491194070421890	qml_loginpage/appqml_loginpage.qmltypes	6476a7a941461ca6

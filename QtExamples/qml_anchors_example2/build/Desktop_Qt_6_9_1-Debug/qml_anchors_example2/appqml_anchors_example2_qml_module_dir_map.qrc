@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/">
+    <file alias="/qml_anchors_example2">/home/prathik/QT WORKSPACE/QtExamples/qml_anchors_example2/build/Desktop_Qt_6_9_1-Debug/qml_anchors_example2</file>
+
+  </qresource>
+</RCC>

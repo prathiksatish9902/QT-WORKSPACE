@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Images/AddButtonIcon.png</file>
+        <file>Images/BackButtonIcon.png</file>
+        <file>Images/CallApplicationIcon.png</file>
+        <file>Images/CallHangIcon.png</file>
+        <file>Images/CallHistoryApplication.png</file>
+        <file>Images/OptionButtonIcon.png</file>
+        <file>Images/ProfilePicIcon.png</file>
+        <file>Images/SearchIcon.png</file>
+        <file>Images/WhatsappApplicationIcon.png</file>
+    </qresource>
+</RCC>

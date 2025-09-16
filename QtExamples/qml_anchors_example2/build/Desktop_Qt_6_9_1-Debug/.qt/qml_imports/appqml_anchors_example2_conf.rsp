@@ -1,0 +1,14 @@
+-rootPath
+/home/prathik/QT WORKSPACE/QML_examples/qml_anchors_example2
+-cmake-output
+-output-file
+/home/prathik/QT WORKSPACE/QtExamples/qml_anchors_example2/build/Desktop_Qt_6_9_1-Debug/.qt/qml_imports/appqml_anchors_example2_conf.cmake
+-importPath
+/home/prathik/QT WORKSPACE/QtExamples/qml_anchors_example2/build/Desktop_Qt_6_9_1-Debug/qml_anchors_example2
+-importPath
+/home/prathik/QT WORKSPACE/QtExamples/qml_anchors_example2/build/Desktop_Qt_6_9_1-Debug
+-importPath
+/home/prathik/Qt/6.9.1/gcc_64/qml
+-qrcFiles
+/home/prathik/QT WORKSPACE/QtExamples/qml_anchors_example2/build/Desktop_Qt_6_9_1-Debug/.qt/rcc/qmake_qml_anchors_example2.qrc
+/home/prathik/QT WORKSPACE/QtExamples/qml_anchors_example2/build/Desktop_Qt_6_9_1-Debug/.qt/rcc/appqml_anchors_example2_raw_qml_0.qrc

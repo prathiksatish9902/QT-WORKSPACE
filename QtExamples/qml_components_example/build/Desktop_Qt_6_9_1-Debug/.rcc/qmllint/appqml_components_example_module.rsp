@@ -1,0 +1,10 @@
+-I
+/home/prathik/QT WORKSPACE/QtExamples/qml_components_example/build/Desktop_Qt_6_9_1-Debug
+-I
+/home/prathik/Qt/6.9.1/gcc_64/qml
+--resource
+/home/prathik/QT WORKSPACE/QtExamples/qml_components_example/build/Desktop_Qt_6_9_1-Debug/.qt/rcc/qmake_qml_components_example.qrc
+--resource
+/home/prathik/QT WORKSPACE/QtExamples/qml_components_example/build/Desktop_Qt_6_9_1-Debug/.qt/rcc/appqml_components_example_raw_qml_0.qrc
+--module
+qml_components_example

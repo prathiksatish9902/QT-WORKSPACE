@@ -1,0 +1,188 @@
+[
+    {
+        "moduleFiles": [
+            {
+                "entries": [
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 27,
+                        "durationMicroseconds": 136,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 14
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 39,
+                        "durationMicroseconds": 176,
+                        "errorMessage": "",
+                        "functionName": "horizontalCenter",
+                        "line": 19
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 26,
+                        "durationMicroseconds": 145,
+                        "errorMessage": "",
+                        "functionName": "top",
+                        "line": 20
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 29,
+                        "durationMicroseconds": 141,
+                        "errorMessage": "",
+                        "functionName": "bottom",
+                        "line": 22
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 39,
+                        "durationMicroseconds": 141,
+                        "errorMessage": "",
+                        "functionName": "horizontalCenter",
+                        "line": 28
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 26,
+                        "durationMicroseconds": 136,
+                        "errorMessage": "",
+                        "functionName": "top",
+                        "line": 29
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 24,
+                        "durationMicroseconds": 130,
+                        "errorMessage": "",
+                        "functionName": "bold",
+                        "line": 31
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 26,
+                        "durationMicroseconds": 149,
+                        "errorMessage": "",
+                        "functionName": "top",
+                        "line": 39
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 31,
+                        "durationMicroseconds": 61,
+                        "errorMessage": "",
+                        "functionName": "centerIn",
+                        "line": 40
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 31,
+                        "durationMicroseconds": 142,
+                        "errorMessage": "",
+                        "functionName": "left",
+                        "line": 45
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 31,
+                        "durationMicroseconds": 60,
+                        "errorMessage": "",
+                        "functionName": "fill",
+                        "line": 47
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 26,
+                        "durationMicroseconds": 138,
+                        "errorMessage": "",
+                        "functionName": "top",
+                        "line": 56
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 27,
+                        "durationMicroseconds": 134,
+                        "errorMessage": "",
+                        "functionName": "left",
+                        "line": 57
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 31,
+                        "durationMicroseconds": 141,
+                        "errorMessage": "",
+                        "functionName": "left",
+                        "line": 63
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 31,
+                        "durationMicroseconds": 61,
+                        "errorMessage": "",
+                        "functionName": "fill",
+                        "line": 65
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 23,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Cannot resolve property type  for binding on onClicked.",
+                        "functionName": "onClicked",
+                        "line": 75
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 26,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Cannot resolve property type  for binding on top.",
+                        "functionName": "top",
+                        "line": 71
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 27,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Cannot resolve property type  for binding on left.",
+                        "functionName": "left",
+                        "line": 72
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 39,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Cannot resolve property type  for binding on horizontalCenter.",
+                        "functionName": "horizontalCenter",
+                        "line": 74
+                    },
+                    {
+                        "codegenSuccessfull": true,
+                        "column": 22,
+                        "durationMicroseconds": 152,
+                        "errorMessage": "",
+                        "functionName": "top",
+                        "line": 84
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 17,
+                        "durationMicroseconds": 50,
+                        "errorMessage": "Cannot access value for name Login",
+                        "functionName": "target",
+                        "line": 89
+                    },
+                    {
+                        "codegenSuccessfull": false,
+                        "column": 9,
+                        "durationMicroseconds": 0,
+                        "errorMessage": "Functions without type annotations won't be compiled",
+                        "functionName": "onLoginResult",
+                        "line": 90
+                    }
+                ],
+                "filepath": "/home/prathik/QT WORKSPACE/QML_examples/qml_loginpage/main.qml"
+            }
+        ],
+        "moduleId": "qml_loginpage(appqml_loginpage)"
+    }
+]

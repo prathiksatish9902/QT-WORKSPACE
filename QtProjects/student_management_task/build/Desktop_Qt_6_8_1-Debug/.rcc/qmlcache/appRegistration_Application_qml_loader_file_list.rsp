@@ -1,0 +1,7 @@
+--resource
+/home/prathik/QT WORKSPACE/QtProjects/student_management_task/build/Desktop_Qt_6_8_1-Debug/.qt/rcc/qmake_Registration_Application.qrc
+--resource
+/home/prathik/QT WORKSPACE/QtProjects/student_management_task/build/Desktop_Qt_6_8_1-Debug/.qt/rcc/appRegistration_Application_raw_qml_0.qrc
+/Registration_Application/main.qml
+/Registration_Application/LoginPage.qml
+/Registration_Application/RegisterPage.qml

@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/">
+    <file alias="/qml_components_example">/home/prathik/QT WORKSPACE/QtExamples/qml_components_example/build/Desktop_Qt_6_9_1-Debug/qml_components_example</file>
+
+  </qresource>
+</RCC>

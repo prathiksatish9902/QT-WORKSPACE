@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Image/Favourite.png</file>
+        <file>Image/Production.png</file>
+        <file>Image/SetUp.png</file>
+        <file>Image/Support.png</file>
+        <file>Image/Tools.png</file>
+        <file>Components/ApplicationMenuPage.qml</file>
+        <file>Components/FavouritePage.qml</file>
+        <file>Components/MenuButton.qml</file>
+        <file>Components/ProductionPage.qml</file>
+        <file>Components/SetUpPage.qml</file>
+        <file>Components/SupportPage.qml</file>
+        <file>Components/ToolsPage.qml</file>
+    </qresource>
+</RCC>

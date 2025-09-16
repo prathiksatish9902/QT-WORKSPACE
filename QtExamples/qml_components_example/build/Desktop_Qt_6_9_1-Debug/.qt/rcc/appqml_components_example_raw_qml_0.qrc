@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="/qml_components_example/">
+    <file alias="main.qml">/home/prathik/QT WORKSPACE/QML_examples/qml_components_example/main.qml</file>
+    <file alias="Images/view-3d-car.png">/home/prathik/QT WORKSPACE/QML_examples/qml_components_example/Images/view-3d-car.png</file>
+  </qresource>
+</RCC>
+
