@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>CustomCheckBox.qml</file>
+        <file>Images/tickIcon.png</file>
+    </qresource>
+</RCC>

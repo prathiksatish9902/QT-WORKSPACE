@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>CustomRadioButton.qml</file>
+        <file>Images/dot-23844.png</file>
+    </qresource>
+</RCC>
