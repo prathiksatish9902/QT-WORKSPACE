@@ -1,0 +1,14 @@
+-rootPath
+/home/prathik/QT WORKSPACE/QML_examples/qml_components_example
+-cmake-output
+-output-file
+/home/prathik/QT WORKSPACE/QtExamples/qml_components_example/build/Desktop_Qt_6_9_1-Debug/.qt/qml_imports/appqml_components_example_build.cmake
+-importPath
+/home/prathik/QT WORKSPACE/QtExamples/qml_components_example/build/Desktop_Qt_6_9_1-Debug/qml_components_example
+-importPath
+/home/prathik/QT WORKSPACE/QtExamples/qml_components_example/build/Desktop_Qt_6_9_1-Debug
+-importPath
+/home/prathik/Qt/6.9.1/gcc_64/qml
+-qrcFiles
+/home/prathik/QT WORKSPACE/QtExamples/qml_components_example/build/Desktop_Qt_6_9_1-Debug/.qt/rcc/qmake_qml_components_example.qrc
+/home/prathik/QT WORKSPACE/QtExamples/qml_components_example/build/Desktop_Qt_6_9_1-Debug/.qt/rcc/appqml_components_example_raw_qml_0.qrc

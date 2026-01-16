@@ -1,0 +1,4 @@
+module qml_components_example
+typeinfo appqml_components_example.qmltypes
+prefer :/qml_components_example/
+

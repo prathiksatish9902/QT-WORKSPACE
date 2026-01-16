@@ -1,0 +1,12 @@
+--bare
+-I
+/home/prathik/QT WORKSPACE/QtProjects/student_management_task/build/Desktop_Qt_6_8_1-Debug
+-I
+/home/prathik/Qt/6.8.1/gcc_64/qml
+--resource
+/home/prathik/QT WORKSPACE/QtProjects/student_management_task/build/Desktop_Qt_6_8_1-Debug/.qt/rcc/qmake_Registration_Application.qrc
+--resource
+/home/prathik/QT WORKSPACE/QtProjects/student_management_task/build/Desktop_Qt_6_8_1-Debug/.qt/rcc/appRegistration_Application_raw_qml_0.qrc
+/home/prathik/QT WORKSPACE/QtProjects/student_management_task/main.qml
+/home/prathik/QT WORKSPACE/QtProjects/student_management_task/LoginPage.qml
+/home/prathik/QT WORKSPACE/QtProjects/student_management_task/RegisterPage.qml

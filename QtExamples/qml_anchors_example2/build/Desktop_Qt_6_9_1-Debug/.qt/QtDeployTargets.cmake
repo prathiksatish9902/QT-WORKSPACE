@@ -1,0 +1,2 @@
+set(__QT_DEPLOY_TARGET_appqml_anchors_example2_FILE /home/prathik/QT WORKSPACE/QtExamples/qml_anchors_example2/build/Desktop_Qt_6_9_1-Debug/appqml_anchors_example2)
+set(__QT_DEPLOY_TARGET_appqml_anchors_example2_TYPE EXECUTABLE)

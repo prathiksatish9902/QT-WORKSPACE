@@ -1,0 +1,2 @@
+set(__QT_DEPLOY_TARGET_appqml_components_example_FILE /home/prathik/QT WORKSPACE/QtExamples/qml_components_example/build/Desktop_Qt_6_9_1-Debug/appqml_components_example)
+set(__QT_DEPLOY_TARGET_appqml_components_example_TYPE EXECUTABLE)

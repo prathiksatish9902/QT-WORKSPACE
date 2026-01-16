@@ -1,0 +1,4 @@
+module qml_loginpage
+typeinfo appqml_loginpage.qmltypes
+prefer :/qml_loginpage/
+

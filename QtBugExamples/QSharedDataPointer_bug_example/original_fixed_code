@@ -1,0 +1,48 @@
+#include <QSharedData>
+#include <QSharedDataPointer>
+#include <QString>
+
+class EmployeeData : public QSharedData
+{
+public:
+    EmployeeData() : id(-1) { }
+
+    EmployeeData(const EmployeeData &other)
+        : QSharedData(other), id(other.id), name(other.name) { }
+
+    ~EmployeeData() = default;  // Modern way to define trivial destructor
+
+    int id;
+    QString name;
+};
+
+class Employee
+{
+public:
+    Employee() : d(new EmployeeData) { }
+
+    Employee(int id, const QString &name)
+        : d(new EmployeeData)
+    {
+        setId(id);
+        setName(name);
+    }
+
+    // Use = default for copy/move constructor & assignment operators
+    Employee(const Employee &other) = default;
+    Employee &operator=(const Employee &other) = default;
+
+    Employee(Employee &&other) = default;
+    Employee &operator=(Employee &&other) = default;
+
+    ~Employee() = default;
+
+    void setId(int id) { d->id = id; }
+    void setName(const QString &name) { d->name = name; }
+
+    int id() const { return d->id; }
+    QString name() const { return d->name; }
+
+private:
+    QSharedDataPointer<EmployeeData> d;
+};

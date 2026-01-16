@@ -143,7 +143,6 @@ void CalendarWidget::updateCalendar()
         }
 
         connect(dayButton, &QPushButton::clicked, this, &CalendarWidget::dayClicked);
-
         dayButton->show();
 
         m_dayButtons.push_back(dayButton);
